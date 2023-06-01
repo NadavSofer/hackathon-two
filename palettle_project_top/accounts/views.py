@@ -3,11 +3,11 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile, palettes
-from .forms import ProfileForm
+from .forms import ProfileForm, PaletteForm
 
 
 
-class profile_view(DetailView):
+class ProfileView(DetailView):
     model = UserProfile
     template_name = 'profile.html'
     context_object_name = 'profile'
@@ -22,15 +22,32 @@ class profile_view(DetailView):
             colors.append([palette.color_1, palette.color_2, palette.color_3, palette.color_4, palette.color_5])
 
         context['palettes'] = colors
+        context['form'] = PaletteForm()  # Add the form to the context
         return context
 
 
-class signup_view(CreateView):
+    def post(self, request, *args, **kwargs):
+        user_profile = self.get_object()
+        form = PaletteForm(request.POST)
+        if form.is_valid():
+            palette = form.save(commit=False)
+            palette.user = user_profile.user
+            palette.save()
+            return redirect('profile-page', pk=user_profile.pk)
+        else:
+            context = self.get_context_data(**kwargs)
+            context['form'] = form
+            return self.render_to_response(context)
+        
+
+
+
+class signupView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'sign_up.html'
 
-def profile_redirect_view(request):
+def profileRedirectView(request):
     user = request.user
     if hasattr(user, 'profile'):
         return redirect('update-profile')
