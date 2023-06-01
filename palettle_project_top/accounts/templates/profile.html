@@ -5,11 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
+
 </head>
 <body>
-    <h1>user name: <small>{{profile.user}}</small></h1>
+    <h1>{{ profile.user.username }}'s Profile</h1>
 
-    <img src="{{profile.image}}" alt="">
+    <h2>Palettes:</h2>
+    {% for palette in palettes %}
+        <h3>Palette {{ forloop.counter }}</h3>
+        <ul>
+            <li style="color: {{ palette.0 }};">Color 1: {{ palette.0 }}</li>
+            <li style="color: {{ palette.1 }};">Color 2: {{ palette.1 }}</li>
+            <li style="color: {{ palette.2 }};">Color 3: {{ palette.2 }}</li>
+            <li style="color: {{ palette.3 }};">Color 4: {{ palette.3 }}</li>
+            <li style="color: {{ palette.4 }};">Color 5: {{ palette.4 }}</li>
+        </ul>
+    {% endfor %}
 
 </body>
 </html>

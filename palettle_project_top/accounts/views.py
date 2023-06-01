@@ -2,15 +2,28 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
-from .models import UserProfile
+from .models import UserProfile, palettes
 from .forms import ProfileForm
 
 
 
 class profile_view(DetailView):
     model = UserProfile
-    template_name= 'profile.html'
+    template_name = 'profile.html'
     context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_profile = self.object
+        user_palettes = palettes.objects.filter(user=user_profile.user)
+
+        colors = []
+        for palette in user_palettes:
+            colors.append([palette.color_1, palette.color_2, palette.color_3, palette.color_4, palette.color_5])
+
+        context['palettes'] = colors
+        return context
+
 
 class signup_view(CreateView):
     form_class = UserCreationForm
