@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'palette_api',
-    'main_site'
 ]
 
 MIDDLEWARE = [
