@@ -7,21 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static '\CSS\style.css' %}">
+    {% block css %}{% endblock css %}
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="" alt="">
-        </div>
-        <div>
-            <ul>
-                <li><a href="">random palettes</a></li>
-                <li><a href="{% url 'HomePageView' %}">profile</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    {% include 'navbar.html' %}
+
     {%block content%}
-    {%include 'navbar.html'%}
+    
 
     {%endblock%}
 </body>

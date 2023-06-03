@@ -1,1 +1,13 @@
-<h1>thing</h1>
+<nav>
+    <div class="logo">
+        <img src="" alt="">
+        {{user.username}}
+    </div>
+    <div>
+        <ul>
+            <li><a href="{% url 'randomPalette' %}">random palettes</a></li>
+            <li><a href="{% url 'homepage' %}">Homepage</a></li>
+            <li><a href="{% url 'profile-page' user.pk %}">Profile</a></li>
+        </ul>
+    </div>
+</nav>

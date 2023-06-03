@@ -1,4 +1,9 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: #1e222a;
+    background-color: #868686;
     color: aliceblue;
 }

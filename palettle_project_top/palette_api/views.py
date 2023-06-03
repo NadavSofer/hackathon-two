@@ -55,3 +55,9 @@ def Palette_delete(request, pk):
         Palette.delete()
         return redirect('Palette-list')
     return render(request, 'Palette_delete.html', {'Palette': Palette})
+
+
+def palettesOut (request):
+    palettes = Palette.objects.all()
+    serializer = PaletteSerializer(palettes, many=True)
+    return JsonResponse(serializer.data, safe=False)

@@ -1,0 +1,8 @@
+#makePalette {
+    display: flex;
+    flex-direction: column;
+}
+
+#makePalette-container {
+    display: flex;
+}

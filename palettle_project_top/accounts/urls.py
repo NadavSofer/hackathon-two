@@ -9,6 +9,6 @@ urlpatterns = [
     path('signup/', signupView.as_view(), name='signup'),
     path('profile-redirect/', profileRedirectView, name='profile-redirect'),
     path('delete-palette/<int:pk>/', DeletePaletteView.as_view(), name='delete-palette'),
-    path('random_palette/', RandomPaletteView.as_view(), name='random-palette'),
-    path('homepage/', HomePageView.as_view(), name='HomePageView'),
+    path('random_palette/', RandomPaletteView.as_view(), name='randomPalette'),
+    path('homepage/', HomePageView.as_view(), name='homepage'),
 ]

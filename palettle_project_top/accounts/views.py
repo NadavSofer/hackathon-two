@@ -56,13 +56,18 @@ class signupView(CreateView):
 def profileRedirectView(request):
     user = request.user
     if hasattr(user, 'profile'):
-        return redirect('update-profile')
+        return redirect('profile-page', pk=user.pk)
 
 
-class RandomPaletteView(DetailView):
-    model = UserProfile
-    template_name = 'random.html'
-    context_object_name = 'profile'
+# class RandomPaletteView(DetailView):
+#     model = UserProfile
+#     template_name = 'random.html'
+#     context_object_name = 'profile'
+
+
+class RandomPaletteView(View):
+    def get(self, request):
+        return render(request, 'random.html')
 
 
 class HomePageView(View):

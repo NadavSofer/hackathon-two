@@ -1,6 +1,20 @@
 {%extends 'base.html'%}
+{% load static %}
+{% block title %}generate random{% endblock title %}
+{% block css %}<link rel="stylesheet" href="{% static '\CSS\random.css' %}">{% endblock css %}
 
-{% block title %}profile{% endblock title %}
 {%block content%}
+    <div id="test"></div>
 
+    <div id="randomPalette">
+
+    </div>
+    <div id="makePalette">
+        <h2>Make your own!</h2>
+        <div id="makePalette-container">
+
+        </div>
+
+    </div>
+    <script src="{% static '\JS\random.js' %}"></script>
 {%endblock%}
