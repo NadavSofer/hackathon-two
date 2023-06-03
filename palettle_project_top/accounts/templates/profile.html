@@ -1,29 +1,58 @@
 {%extends 'base.html'%}
-
+{% load static %}
 {% block title %}profile{% endblock title %}
-{%block content%}
-    <h1>{{ profile.user.username }}'s Profile</h1>
+{% block css %}<link rel="stylesheet" href="{% static '\CSS\profile.css' %}">{% endblock css %}
 
-    <h2>Palettes:</h2>
+{%block content%}
+
+    <h1>Your Palettes</h1>
     {% for palette in palettes %}
-        <h3>Palette {{ forloop.counter }}</h3>
-        <ul>
-            <li style="color: {{ palette.0 }};">Color 1: {{ palette.0 }}</li>
-            <li style="color: {{ palette.1 }};">Color 2: {{ palette.1 }}</li>
-            <li style="color: {{ palette.2 }};">Color 3: {{ palette.2 }}</li>
-            <li style="color: {{ palette.3 }};">Color 4: {{ palette.3 }}</li>
-            <li style="color: {{ palette.4 }};">Color 5: {{ palette.4 }}</li>
-        </ul>
-        <form action="{% url 'delete-palette' palette.5 %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Delete</button>
-        </form>
-        <p></p>
+        <div class="box-outer-container">
+            <h3>Palette {{ forloop.counter }}</h3>
+            <div class="box-inner-container">
+                <div class="container">
+                    <div class="box" style="background-color: {{ palette.0 }};"></div>
+                    <p>{{ palette.0 }}</p>
+                </div>
+                <div class="container">
+                    <div class="box" style="background-color: {{ palette.1 }};"></div>
+                    <p>{{ palette.1 }}</p>
+                </div>
+                <div class="container">
+                    <div class="box" style="background-color: {{ palette.2 }};"></div>
+                    <p>{{ palette.2 }}</p>
+                </div>
+                <div class="container">
+                    <div class="box" style="background-color: {{ palette.3 }};"></div>
+                    <p>{{ palette.3 }}</p>
+                </div>
+                <div class="container">
+                    <div class="box" style="background-color: {{ palette.4 }};"></div>
+                    <p>{{ palette.4 }}</p>
+                </div>
+
+            </div>
+            <form action="{% url 'delete-palette' palette.5 %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete Palette</button>
+            </form>
+            <p></p>
+        </div>
     {% endfor %}
 
-    <form action="" method="post"> 
-        {%csrf_token%}
-        {{form}}
-        <input type="submit" value="add">
-    </form>
+    <div class="add-Palette">
+        <h1>Add to your collection</h1>
+        <form action="" method="post" id="add-palette">
+            <div class="form-inputs">
+                {%csrf_token%}
+                {{form}}
+            </div>
+            <div class="submit-button">
+                <button type="submit">Add Palette</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <script src="{% static '\JS\profile.js' %}"></script>
 {%endblock%}

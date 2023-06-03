@@ -1,8 +1,54 @@
+
+
+#randomPalette{
+    text-align: center;
+}
+
+#randomPalette > * {
+    margin: 2rem 0;
+}
+
+button {
+    background-color: #2369ff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.8rem;
+    color: aliceblue;
+    margin-top: 1rem !important; 
+}
+
+#randomPalette-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #makePalette {
     display: flex;
     flex-direction: column;
+    background-color: #253861;
+    padding: 3rem 0;
+    color: aliceblue;
+    justify-content:  center;
+    align-items: center;
 }
 
-#makePalette-container {
+#makePalette-outer-container {
     display: flex;
+}
+
+#makePalette-outer-container .box {
+    border: aliceblue 1px solid;
+}
+
+#makePalette-outer-container input {
+    width: 9rem;
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+.makePalette-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

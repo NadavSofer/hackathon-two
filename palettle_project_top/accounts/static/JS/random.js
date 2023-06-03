@@ -1,14 +1,14 @@
 (function makePalette() {
-    let makePalette = document.getElementById('makePalette-container');
+    let makePalette = document.getElementById('makePalette-outer-container');
     for (let i = 0; i < 5; i++) {
         let makePalette_container = document.createElement('div');
-        makePalette_container.classList.add('makePalette-container')
+        makePalette_container.classList.add('makePalette-inner-container')
 
         let box = document.createElement('div');
         box.classList.add('box');
-        box.style.width = '5rem';
-        box.style.height = '5rem';
-        
+
+        let p = document.createElement('p');
+        p.innerText = '#000000'
 
         let input = document.createElement('input');
         input.setAttribute('type', 'color');
@@ -16,9 +16,12 @@
         input.addEventListener('input', ()=>{
             console.log(input.value);
             box.style.backgroundColor = input.value;
+            p.innerText = input.value;
         })
 
+
         makePalette_container.appendChild(box);
+        makePalette_container.appendChild(p);
         makePalette_container.appendChild(input);
         makePalette.appendChild(makePalette_container);
     }
@@ -44,8 +47,6 @@ const renderAPI = (arr) => {
 
         let box = document.createElement('div');
         box.classList.add('box');
-        box.style.width = '5rem';
-        box.style.height = '5rem';
         box.style.backgroundColor = color;
 
         let p = document.createElement('p');

@@ -1,0 +1,31 @@
+.outer-container, .inner-container, .inner-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer-container {
+    height: 70vh;
+}
+
+.inner-container {
+    border: 5px solid #2b5bc2;
+    padding: 3rem 5rem 1rem;
+    border-radius: 5px;
+    background-color: #243760;
+    color: aliceblue;
+}
+
+.inner-container form > *{
+    margin: 0.5rem 0;
+}
+
+.inner-container button {
+    margin-top: 2rem;
+    width: 5rem;
+}
+
+.inner-container a {
+    color: aliceblue;
+}

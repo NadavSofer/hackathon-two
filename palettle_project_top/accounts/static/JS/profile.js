@@ -1,0 +1,11 @@
+let colorInput1 = document.getElementById('id_color_1')
+let colorInput2 = document.getElementById('id_color_2')
+let colorInput3 = document.getElementById('id_color_3')
+let colorInput4 = document.getElementById('id_color_4')
+let colorInput5 = document.getElementById('id_color_5')
+
+colorInput1.setAttribute('type', 'color')
+colorInput2.setAttribute('type', 'color')
+colorInput3.setAttribute('type', 'color')
+colorInput4.setAttribute('type', 'color')
+colorInput5.setAttribute('type', 'color')

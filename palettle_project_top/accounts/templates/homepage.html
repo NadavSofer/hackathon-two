@@ -1,7 +1,18 @@
 {%extends 'base.html'%}
-
-{% block title %}homepage{% endblock title %}
 {% load static %}
+{% block title %}homepage{% endblock title %}
+{% block css %}<link rel="stylesheet" href="{% static '\CSS\homepage.css' %}">{% endblock css %}
 {%block content%}
+<div class="banner">
+    <h1>NS Paint</h1>
+
+    <a href="{% url 'randomPalette' %}">Quick palettes</a>
+</div>
+<div class="links">
+    <a href="{% url 'login' %}"><button>sign in</button></a>
+    <a href="{% url 'signup' %}"><button>sign up</button></a>
+</div>
+
+
 <script src="{% static '\JS\homepage.js' %}"></script>
 {%endblock%}

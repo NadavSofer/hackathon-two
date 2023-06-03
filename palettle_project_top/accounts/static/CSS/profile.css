@@ -1,0 +1,52 @@
+body{
+    text-align: center;
+}
+
+.box-outer-container > *{
+    margin: 2rem;
+}
+
+.box-inner-container {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 6rem;
+    height: 2rem;
+}
+
+#add-palette{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h1 {
+    margin: 2rem 0;
+}
+
+.add-Palette {
+    background-color: #243760;
+    padding: 3rem 0;
+    color: aliceblue;
+}
+
+.form-inputs > * {
+    margin-right: 0.5rem;
+}
+
+button {
+    background-color: #2369ff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.8rem;
+    color: aliceblue;
+}
+
+.submit-button button{
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+}

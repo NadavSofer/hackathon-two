@@ -1,9 +1,95 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
-    background-color: #868686;
+    background-color: aliceblue;
+}
+
+button {
+    background-color: #2369ff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.8rem;
     color: aliceblue;
+    margin-top: 1rem; 
+}
+
+/* navbar -------------------------------- */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    color: aliceblue;
+    background-color: black;
+    font-size: 1.5rem;
+}
+
+nav button {
+    margin-top: 0;
+    width: 5rem;
+    padding: 0.8rem 0.5rem;
+}
+
+#logo {
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+nav a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.nav-user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-user p {
+    font-size: 2rem;
+}
+
+.nav-user i{
+    font-size: 1.5rem;
+    border: solid 3px aliceblue;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+#logout{
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.nav-links > * {
+    margin-right: 1rem;
+}
+
+/* footer -------------------------------- */
+
+.box {
+    height: 10rem;
+    width: 10rem;
+}
+
+
+/* footer -------------------------------- */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    background-color: black;
+    font-size: 1.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
 }
