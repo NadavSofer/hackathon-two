@@ -7,15 +7,19 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
 
+# API view for listing and creating palettes
 class PaletteList(generics.ListCreateAPIView):
     queryset = Palette.objects.all()
     serializer_class = PaletteSerializer
 
+
+# API view for retrieving, updating, and deleting a specific palette
 class PaletteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Palette.objects.all()
     serializer_class = PaletteSerializer
 
-# @csrf_exempt
+
+# View for rendering the form to create a new palette
 def Palette_create(request):
     if request.method == 'POST':
         serializer = PaletteSerializer(data=request.POST)
@@ -26,6 +30,8 @@ def Palette_create(request):
         serializer = PaletteSerializer()
     return render(request, 'Palette_create.html', {'serializer': serializer})
 
+
+# View for creating a new palette via POST request (API endpoint)
 @csrf_exempt
 def Palette_create_post(request):
     if request.method == 'POST':
@@ -38,6 +44,7 @@ def Palette_create_post(request):
             return JsonResponse(serializer.errors, status=400)
 
 
+# View for rendering the form to update an existing palette
 def Palette_update(request, pk):
     Palette = Palette.objects.get(pk=pk)
     if request.method == 'POST':
@@ -49,6 +56,8 @@ def Palette_update(request, pk):
         serializer = PaletteSerializer(instance=Palette)
     return render(request, 'Palette_update.html', {'serializer': serializer, 'Palette': Palette})
 
+
+# View for deleting an existing palette
 def Palette_delete(request, pk):
     Palette = Palette.objects.get(pk=pk)
     if request.method == 'POST':
@@ -57,7 +66,8 @@ def Palette_delete(request, pk):
     return render(request, 'Palette_delete.html', {'Palette': Palette})
 
 
-def palettesOut (request):
+# View for returning all palettes as JSON response
+def palettesOut(request):
     palettes = Palette.objects.all()
     serializer = PaletteSerializer(palettes, many=True)
     return JsonResponse(serializer.data, safe=False)
